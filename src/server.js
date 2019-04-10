@@ -16,8 +16,8 @@ io.on('connection', socket => {
     });
     console.log('Ok');
 })
-
-mongoose.connect('mongodb://localhost:27017/omnistack',{
+const urlMongo = process.env.NODE_ENV == 'production' ? 'mongodb+srv://omnistack:omnistack@cluster0-az3zu.mongodb.net/test?retryWrites=true':'mongodb://localhost:27017/omnistack';
+mongoose.connect(urlMongo, {
     useNewUrlParser: true
 });
 
